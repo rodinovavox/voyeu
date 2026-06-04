@@ -334,3 +334,26 @@ body {
     right: 380px;
     transform: rotate(-50deg);
 }
+#title1 {
+    position: absolute;
+    font-size: 250%;
+    align-items: center;
+    text-align: center;
+    top: 50px;
+    left: 600px;
+}
+#title2 {
+    position: absolute;
+    top: 320px;
+    left: 150px;
+}
+#title3 {
+    position: absolute;
+    top: 520px;
+    left: 700px;
+}
+#title4 {
+    position: absolute;
+    bottom: 20px;
+    right: 100px;
+}
