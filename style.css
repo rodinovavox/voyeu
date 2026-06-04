@@ -1,0 +1,336 @@
+@font-face {
+    font-family: 'pixel';
+    src: url('font/dearpix-2-01.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@keyframes nhip-dap {
+    0% {
+        transform: scale(1); /* Kích thước gốc */
+    }
+    20% {
+        transform: scale(1.15); /* Phóng to lên 15% */
+    }
+    40% {
+        transform: scale(1); /* Thu về kích thước gốc */
+    }
+    60% {
+        transform: scale(1.15); /* Phóng to lần 2 tạo nhịp kép */
+    }
+    100% {
+        transform: scale(1); /* Kết thúc nhịp, về kích thước gốc */
+    }
+}
+.final {
+    /* 🚀 SỬA TẠI ĐÂY: Nhấc hộp bọc ngoài đưa vào CHÍNH GIỮA màn hình */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Thiết lập kích thước cố định bằng đúng kích thước cửa sổ của bạn */
+    width: 450px;
+    height: 350px;
+    
+    /* Sử dụng Flexbox để quản lý nút #intro bên trong */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-image: url('background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+*{
+    box-sizing: border-box;
+}
+
+#letter {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    background: url(letterimg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    animation: nhip-dap 1.2s infinite ease-in-out;
+}
+#gt {
+    position: relative;
+    align-items: center;
+    animation: nhip-dap 1.2s infinite ease-in-out;
+}
+
+#intro, #window, #tinnhan, #mem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Mặc định cho ẩn bằng cách thu nhỏ về 0 và làm mờ */
+    transform: translate(-50%, -50%) scale(0); 
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.65, 1), opacity 0.3s ease;
+}
+
+#window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1);
+    width: 400px;
+    height: 300px;
+    z-index: 4;
+        /* 🚀 BỘ BA THUỘC TÍNH LÀM ẨN MƯỢT */
+    opacity: 0;                /* Làm trong suốt hoàn toàn */
+    transform: scale(0);     /* Thu nhỏ lại còn 0% kích thước */
+    pointer-events: none;      /* Khóa click, chuột không thể bấm xuyên qua khi đang ẩn */
+    
+    /* Thời gian chạy hiệu ứng mượt mà (0.3 giây) */
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+#window.hien-popup {
+    opacity: 1;                /* Hiện rõ 100% */
+    transform: translate(-50%,-50%) scale(1);       /* Phóng to về kích thước gốc 100% */
+    pointer-events: auto;      /* Mở lại tính năng tương tác click chuột */
+}
+.st{
+    font-family: 'pixel',sans-serif;
+    color: rgb(140, 76, 87);
+}
+#titlew {
+    position: absolute;
+    top: 2px; left: 4px;
+    font-size: 80%;
+    color: rgb(209, 95, 114);
+}
+
+#intro {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column; /* Ép các phần tử con xếp thành hàng dọc */
+    align-items: center;    /* Căn thẳng hàng chính giữa theo chiều ngang */
+    justify-content: center;/* Căn thẳng hàng chính giữa theo chiều dọc */
+    gap: 10px;              /* Khoảng cách giữa bức thư và dòng chữ (tùy chỉnh) */
+}
+
+#wind1 {
+    position: absolute;
+    align-self: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: pink;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 5px solid rgb(254, 69, 100);
+    z-index: 1;
+}
+
+#wind2 {
+    position: absolute;
+    top: 35px; left: 20px;
+    width: 360px;
+    height: 250px;
+    background-color: pink;
+    border-radius: 10px;
+    border: 5px solid rgb(254, 69, 100) ;
+    z-index: 2;
+}
+#function_bar {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    display: flex;
+    gap: 15px;
+    height: 21px;
+    align-items: center;
+    z-index: 10;
+}
+#letter-content{
+    position: absolute;
+    top: 2px; left: 5px;
+}
+#sign {
+    position: absolute;
+    bottom: 25px;
+    right: 45px;
+    z-index: 5;
+    font-size: 90%;
+    text-align: center;
+}
+
+.khung-gui-tin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    width: 400px;
+    margin-top: 50px;
+    text-align: center;
+    z-index: 6;
+    opacity: 0;                /* Làm trong suốt hoàn toàn */
+    transform: scale(0);     /* Thu nhỏ lại còn 0% kích thước */
+    pointer-events: none;      /* Khóa click, chuột không thể bấm xuyên qua khi đang ẩn */
+    
+    /* Thời gian chạy hiệu ứng mượt mà (0.3 giây) */
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+/* Định dạng ô nhập văn bản */
+#user-message {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 3px solid rgb(254, 69, 100); /* Màu hồng đậm viền của bạn */
+    border-radius: 8px;
+    font-family: 'pixel', sans-serif;
+    color: rgb(140, 76, 87);
+    background-color: #fff;
+    resize: none; /* Khóa không cho kéo giãn méo ô */
+    box-sizing: border-box;
+}
+/* Định dạng nút bấm gửi */
+#btn-gui-thu {
+    margin-top: 10px;
+    padding: 8px 20px;
+    background-color: rgb(254, 69, 100);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'pixel', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+#btn-gui-thu:hover {
+    transform: scale(1.05); /* Phóng to nhẹ khi di chuột vào */
+}
+#status-msg {
+    font-size: 85%;
+    margin-top: 5px;
+}
+.lammo {
+    opacity: 0 !important;
+    transform: translate(-50%,-50%) scale(0) !important;
+    pointer-events: none !important;
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.65,1), opacity 0.3s ease !important;
+}
+.congcu {
+    padding: 10px 0px;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    user-select: none;
+    align-items: center;
+}
+#tinnhan.hien-popup, #mem.hien-popup {
+    opacity: 1 !important;                /* Hiện rõ 100% */
+    transform: translate(-50%,-50%) scale(1) !important;       /* Phóng to về kích thước gốc 100% */
+    pointer-events: auto !important;      /* Mở lại tính năng tương tác click chuột */
+    z-index: 999;
+}
+
+#mem {
+    display: flex;
+    flex-direction: column;
+    top: -50px;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    text-align: center;
+}
+#showpic {
+    padding: 6px 18px;
+    font-family: 'pixel', sans-serif;
+    font-size: 80%;
+    color: white;
+    background-color: rgb(254, 69, 100);
+    border: 2px solid white;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    bottom: 5px;
+}
+#showpic:hover {
+    transform: scale(1.05);
+}
+
+#anh {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    user-select: none;
+    z-index: 10;
+    transform: translate(-50%, -50%) scale(0); 
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.65, 1), opacity 0.3s ease;
+}
+#anh.hien-popup {
+    opacity: 1 !important;                /* Hiện rõ 100% */
+    transform: scale(1) !important;       /* Phóng to về kích thước gốc 100% */
+    pointer-events: auto !important;      /* Mở lại tính năng tương tác click chuột */
+    z-index: 999;
+}
+
+#anh1 {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    border: 5px solid rgb(254, 69, 100);
+    top: 50px;
+    left: 50px;
+    transform: rotate(-10deg);
+}
+#anh2 {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    border: 5px solid rgb(254, 69, 100);
+    top: 250px;
+    left: 690px;
+    transform: rotate(10deg);
+}
+#anh3 {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    border: 5px solid rgb(254, 69, 100);
+    bottom: 50px;
+    right: 50px;
+    transform: rotate(-10deg);
+}
+#muiten1 {
+    position: absolute;
+    width: 200px;
+    height: 500px;
+    top: 0px;
+    left: 400px;
+    transform: rotate(-45deg);
+}
+#muiten2 {
+    position: absolute;
+    width: 150px;
+    height: 300px;
+    bottom: 120px;
+    right: 380px;
+    transform: rotate(-50deg);
+}

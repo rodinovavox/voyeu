@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Mụt chiếc web cho vợ 
+        </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="final" style="position: absolute;">
+            <div id="intro" class="st">
+                <div id="letter"></div>
+                <div id="gt">
+                    Bức thư dành cho vợ yêu!
+                </div>
+            </div>
+
+            <div id="window" class="st">
+                <div id ="wind1">
+                    <div id="titlew">
+                        <strong>Chúc Mừng Sinh Nhật - Vợ yêu của anh</strong>
+                    </div>
+                    <div id="function_bar" class="congcu">
+                        <p>&minus;</p>
+                        <p><strong>&#9633;</strong></p>
+                        <p id = "close">&times;</p>
+                    </div>
+                </div>
+                <div id="wind2">
+                    <div id="letter-content">
+                        <a>
+                            Dear, Bảo anh <br> <br>
+
+                            Anh hong có gì nhiều ngoài tấm lòng, 
+                            quà cáp thì anh hong biết em thích gì 
+                            hết nên anh hong biết tặng em quà gì, nên anh tặng anh hihi. Anh muốn sinh nhật
+                            của em thật là vui vẻ. Anh mong những thứ tốt đẹp trên đời 
+                            sẽ luôn dành cho em. Và anh cũng sẽ ngày càng cố gắng
+                            để yêu em một cách tốt hơn ạ. Mong em sẽ cùng anh vượt qua hết
+                            thử thách, khó khăn sẽ xảy ra trong tương lai. 
+                            Anh hong cần gì, chỉ cần em luôn vui vẻ khi ở bên anh. 
+                            Anh thương em nhiều lắm <br>
+                        </a>
+                        <a style="font-size: 80%; top: 50px;">Em đọc xong em bấm dấu x nha</a>
+                    </div>
+                    <div id="sign">
+                        <a>Chồng của em <br>
+                        -Phạm Tiến Đạt-</a>
+                    </div>
+                </div>
+            </div>
+            <div id="tinnhan" class="khung-gui-tin">
+                <div id = "mem" class = "st">
+                    <p style="margin: 0 0 10px 0;">Em có mún coi 1 số thứ đặc biệt hămm</p>
+                    <button type ="submit" id ="showpic">Em mún hì bấm đâyy</button>
+                </div>
+                <!-- Thẻ form chứa ô nhập và nút gửi -->
+                <form id="contact-form">
+                    <textarea id="user-message" name="message" placeholder="Viết lời nhắn gửi cho anh tại đây nha..." required></textarea>
+                    <button type="submit" id="btn-gui-thu">Gửi cho chồng</button>
+                </form>
+                <!-- Dòng thông báo trạng thái sau khi bấm gửi -->
+                <p id="status-msg"></p>
+            </div>
+        </div>
+        <div id="anh">
+            <img src="1.png" alt="to tinh em nee" id="anh1">
+            <img src="3.jpg" alt="lần đâu anh tag em vào gchuu" id="anh2">
+            <img src="2.png" alt="em cầu hôn anhh" id="anh3">
+            <img src="muiten.png" alt="ok" id="muiten1">
+            <img src="muiten.png" alt="ok1"id="muiten2">
+        </div>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function() {
+                emailjs.init( "3piQy01A-0HZZWuqY");
+            })();
+        </script>
+        <script src="script.js"></script>
+    </body>
+</html>
